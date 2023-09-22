@@ -1,6 +1,7 @@
 import { Movie } from '@/interfaces/movie.interface';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface Props {
@@ -22,12 +23,13 @@ const MovieCard = ({ movie, pathname }: Props) => {
       <div className="rounded-xl bg-white shadow-2xl h-full w-full">
         {movie?.poster_path && (
           <div className="relative">
-            <img
+            <Image
               src={posterUrl}
               alt={movie.title}
               className="rounded-t-lg aspect-[2/3] object-cover"
               height={750}
               width={500}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity rounded-t-lg">
               <p className="text-white text-4xl font-bold">

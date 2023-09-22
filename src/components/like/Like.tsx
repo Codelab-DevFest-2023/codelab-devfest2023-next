@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import './like.module.css';
+import './like.css';
 
 interface Props {
   id: number;
