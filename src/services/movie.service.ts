@@ -56,6 +56,7 @@ const getMovieDetails = async (movieId: number): Promise<Movie> => {
 
   const result = await fetch(`${URL}`, {
     headers: API_HEADER,
+    next: { revalidate: 604800 }, // 7 days
   });
   if (!result.ok) {
     throw new Error('Failed to fetch trending movies data');
@@ -114,6 +115,7 @@ const getMovieReviews = async (movieId: number): Promise<Review[]> => {
 
   const result = await fetch(`${URL}`, {
     headers: API_HEADER,
+    cache: 'no-store',
   });
 
   if (!result.ok) {
