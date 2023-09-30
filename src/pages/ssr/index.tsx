@@ -9,7 +9,6 @@ import Head from 'next/head';
 const SSRPage = ({
   movies,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const pathname = '/ssr';
   return (
     <>
       <Head>
@@ -20,7 +19,7 @@ const SSRPage = ({
         <ul className="movies-list grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
           {movies?.map((movie: Movie) => (
             <li key={movie.id}>
-              <MovieCard movie={movie} pathname={pathname} />
+              <MovieCard movie={movie}  />
             </li>
           ))}
         </ul>
