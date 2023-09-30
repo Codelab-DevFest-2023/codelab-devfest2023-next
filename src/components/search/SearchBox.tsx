@@ -1,4 +1,3 @@
-'use client';
 import { QUERY_PARAMS } from '@/constants';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
