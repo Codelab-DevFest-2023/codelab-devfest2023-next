@@ -24,7 +24,7 @@ const Header = () => {
               href="/ssr"
               className="flex items-center gap-2 font-semibold leading-6 xl:text-lg text-base"
             >
-              Serveur Side Rendering
+              Server Side Rendering
             </Link>
           </li>
           <li>
@@ -40,7 +40,7 @@ const Header = () => {
               href="/rsc"
               className="flex items-center gap-2 font-semibold leading-6 xl:text-lg text-base"
             >
-              React Server Component
+              React Server Components
             </Link>
           </li>
         </ul>
