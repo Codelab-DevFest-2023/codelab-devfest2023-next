@@ -5,7 +5,7 @@ import { getMovieDetails, getMovies } from '@/services/movie.service';
 import {
   GetStaticPaths,
   GetStaticProps,
-  InferGetServerSidePropsType,
+  InferGetServerSidePropsType
 } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -65,14 +65,10 @@ const SSGMovieDetailsPage = ({
 
 export const getStaticProps: GetStaticProps<{
   movie: Movie;
-}> = async ({ params }) => {
-  if (params?.id) {
-    const id = Number(params.id);
-    const movie = await getMovieDetails(id);
-    return { props: { movie } };
-  } else {
-    throw new Error('Missing id parameter');
-  }
+}> = async ({ params = {} }) => {
+  const id = Number(params.id);
+  const movie = await getMovieDetails(id);
+  return { props: { movie } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
