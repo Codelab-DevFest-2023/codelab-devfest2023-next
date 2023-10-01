@@ -5,6 +5,7 @@ import { Movie } from '@/interfaces/movie.interface';
 import { fetchMovies } from '@/services/movie.service';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const SSRPage = ({
   movies,
@@ -19,7 +20,9 @@ const SSRPage = ({
         <ul className="movies-list grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
           {movies?.map((movie: Movie) => (
             <li key={movie.id}>
-              <MovieCard movie={movie}  />
+              <Link href={`/ssr/${movie.id}`}>
+                <MovieCard movie={movie} />
+              </Link>
             </li>
           ))}
         </ul>
