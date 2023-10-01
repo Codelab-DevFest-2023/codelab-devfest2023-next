@@ -1,7 +1,10 @@
 import MovieCard from '@/components/movie/card/MovieCard';
 import { Movie } from '@/interfaces/movie.interface';
 import { getMovies } from '@/services/movie.service';
-import { GetStaticProps, InferGetServerSidePropsType } from 'next';
+import {
+  GetStaticProps,
+  InferGetServerSidePropsType
+} from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -17,7 +20,7 @@ const SSGPage = ({
         <ul className="movies-list grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
           {movies?.map((movie: Movie) => (
             <li key={movie.id}>
-              <Link href={`/ssr/${movie.id}`}>
+              <Link href={`/ssg/${movie.id}`}>
                 <MovieCard movie={movie} />
               </Link>
             </li>
