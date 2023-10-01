@@ -2,6 +2,7 @@ import MovieCard from '@/components/movie/card/MovieCard';
 import SearchBox from '@/components/search/SearchBox';
 import { Movie } from '@/interfaces/movie.interface';
 import { fetchMovies } from '@/services/movie.service';
+import Link from 'next/link';
 
 export const revalidate = 0;
 
@@ -10,7 +11,6 @@ interface Props {
 }
 
 const RSCPage = async ({ searchParams }: Props) => {
-  const pathname = '/rsc';
   const { results: movies } = await fetchMovies(searchParams);
 
   return (
@@ -19,7 +19,9 @@ const RSCPage = async ({ searchParams }: Props) => {
       <ul className="movies-list grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
         {movies?.map((movie: Movie) => (
           <li key={movie.id}>
-            <MovieCard movie={movie} pathname={pathname} />
+            <Link href={`/rsc/${movie.id}`}>
+              <MovieCard movie={movie} />
+            </Link>
           </li>
         ))}
       </ul>
