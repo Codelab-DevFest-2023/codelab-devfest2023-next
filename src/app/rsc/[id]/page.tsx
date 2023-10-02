@@ -2,12 +2,12 @@ import Like from '@/components/like/Like';
 import MovieReview from '@/components/movie/review/MovieReview';
 import Note from '@/components/note/Note';
 import { Review } from '@/interfaces/review.interface';
-import { getMovieDetails, getMovieReviews } from '@/services/movie.service';
+import { fetchMovieDetails, getMovieReviews } from '@/services/movie.service';
 import Image from 'next/image';
 
 const RSCMovieDetailsPage = async ({ params }: { params: { id: number } }) => {
   const [movie, reviews] = await Promise.all([
-    getMovieDetails(params.id),
+    fetchMovieDetails(params.id),
     getMovieReviews(params.id),
   ]);
 

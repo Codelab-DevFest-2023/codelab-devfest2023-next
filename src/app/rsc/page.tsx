@@ -1,7 +1,7 @@
 import MovieCard from '@/components/movie/card/MovieCard';
 import SearchBox from '@/components/search/SearchBox';
 import { Movie } from '@/interfaces/movie.interface';
-import { fetchMovies } from '@/services/movie.service';
+import { searchMovies, fetchPopularMovies } from '@/services/movie.service';
 import Link from 'next/link';
 
 export const revalidate = 0;
@@ -11,7 +11,15 @@ interface Props {
 }
 
 const RSCPage = async ({ searchParams }: Props) => {
-  const { results: movies } = await fetchMovies(searchParams);
+  let movies: Movie[];
+
+  if (searchParams.query) {
+    const { results } = await searchMovies(searchParams.query as string);
+    movies = results;
+  } else {
+    const { results } = await fetchPopularMovies();
+    movies = results;
+  }
 
   return (
     <main className="lg:mx-44 mx-4 space-y-4 lg:pt-6 pt-14 pb-20">
