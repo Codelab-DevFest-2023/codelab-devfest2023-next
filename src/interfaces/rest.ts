@@ -15,8 +15,3 @@ export interface ReviewResponse {
   total_pages: number;
   total_results: number;
 }
-
-export interface MoviesRequestPayload {
-  page: number;
-  search: string | undefined;
-}
