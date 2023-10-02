@@ -1,11 +1,14 @@
 import Like from '@/components/like/Like';
 import Note from '@/components/note/Note';
 import { Movie } from '@/interfaces/movie.interface';
-import { getMovieDetails, getMovies } from '@/services/movie.service';
+import {
+  fetchMovieDetails,
+  fetchPopularMovies,
+} from '@/services/movie.service';
 import {
   GetStaticPaths,
   GetStaticProps,
-  InferGetServerSidePropsType
+  InferGetServerSidePropsType,
 } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -67,12 +70,12 @@ export const getStaticProps: GetStaticProps<{
   movie: Movie;
 }> = async ({ params = {} }) => {
   const id = Number(params.id);
-  const movie = await getMovieDetails(id);
+  const movie = await fetchMovieDetails(id);
   return { props: { movie } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { results: movies } = await getMovies();
+  const { results: movies } = await fetchPopularMovies();
   return {
     paths: movies.map((movie) => `/ssg/${movie.id}`),
     fallback: false,
