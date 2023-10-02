@@ -11,8 +11,3 @@ export const QUERY_PARAMS = {
 export const DEFAULT_PARAMS = {
   LANGUAGE: 'fr-FR',
 };
-
-export const PAGINATION = {
-  DEFAULT_PAGE_SIZE: 20,
-  DEFAULT_FIRST_PAGE: 1,
-};
