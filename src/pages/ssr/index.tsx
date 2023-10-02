@@ -1,8 +1,7 @@
 import MovieCard from '@/components/movie/card/MovieCard';
 import SearchBox from '@/components/search/SearchBox';
-import { transformParsedUrlQuery } from '@/helpers';
 import { Movie } from '@/interfaces/movie.interface';
-import { fetchMovies } from '@/services/movie.service';
+import { fetchPopularMovies, searchMovies } from '@/services/movie.service';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -36,9 +35,17 @@ const SSRPage = ({
 
 export const getServerSideProps: GetServerSideProps<{
   movies: Movie[];
-}> = async ({ query: params }) => {
-  const searchParams = transformParsedUrlQuery(params);
-  const { results: movies } = await fetchMovies(searchParams);
+}> = async ({ query: searchParams }) => {
+  let movies: Movie[];
+
+  if (searchParams.query) {
+    const { results } = await searchMovies(searchParams.query as string);
+    movies = results;
+  } else {
+    const { results } = await fetchPopularMovies();
+    movies = results;
+  }
+
   return { props: { movies } };
 };
 

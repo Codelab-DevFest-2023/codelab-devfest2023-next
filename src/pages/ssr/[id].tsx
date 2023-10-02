@@ -1,7 +1,7 @@
 import Like from '@/components/like/Like';
 import Note from '@/components/note/Note';
 import { Movie } from '@/interfaces/movie.interface';
-import { getMovieDetails } from '@/services/movie.service';
+import { fetchMovieDetails } from '@/services/movie.service';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -64,7 +64,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async ({ params }) => {
   if (params?.id) {
     const id = Number(params.id);
-    const movie = await getMovieDetails(id);
+    const movie = await fetchMovieDetails(id);
     return { props: { movie } };
   } else {
     throw new Error('Missing id parameter');
