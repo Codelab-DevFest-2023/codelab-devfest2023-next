@@ -29,7 +29,7 @@ const SearchBox = () => {
   return (
     <input
       type="text"
-      className="text-xl py-3 px-6 bg-white rounded-full w-fit focus-visible:ring-primary focus-visible:ring-offset-primary"
+      className="search-input"
       placeholder="Recherche ..."
       value={searchValue}
       onChange={handleSearchChange}
