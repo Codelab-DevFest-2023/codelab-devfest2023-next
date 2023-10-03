@@ -65,7 +65,7 @@ const searchMovies = async (search: string): Promise<MovieResponse> => {
   return result.json();
 };
 
-const getMovieReviews = async (movieId: number): Promise<Review[]> => {
+const fetchMovieReviews = async (movieId: number): Promise<Review[]> => {
   const URL = `${process.env.NEXT_PUBLIC_API_URL}/movie/${movieId}/reviews`;
 
   const result = await fetch(`${URL}`, {
@@ -82,4 +82,9 @@ const getMovieReviews = async (movieId: number): Promise<Review[]> => {
   return reviews;
 };
 
-export { fetchPopularMovies, fetchMovieDetails, searchMovies, getMovieReviews };
+export {
+  fetchPopularMovies,
+  fetchMovieDetails,
+  searchMovies,
+  fetchMovieReviews,
+};
