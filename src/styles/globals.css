@@ -15,3 +15,21 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+@layer base {
+  .main-container {
+    @apply lg:mx-44 mx-4 space-y-4 lg:pt-6 pt-14 pb-20;
+  }
+
+  .search-input {
+    @apply text-xl py-3 px-6 bg-white rounded-full w-fit focus-visible:ring-primary focus-visible:ring-offset-primary;
+  }
+
+  .movies-list {
+    @apply grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6;
+  }
+
+  .reviews-list {
+    @apply grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-4;
+  }
+}
