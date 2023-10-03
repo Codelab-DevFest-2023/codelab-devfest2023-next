@@ -50,7 +50,7 @@ const RSCMovieDetailsPage = async ({ params }: { params: { id: number } }) => {
               <Like id={movie.id} />
             </div>
           </div>
-          <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-4">
+          <div className="reviews-list">
             {reviews.map((review: Review) => (
               <MovieReview key={review.id} review={review} />
             ))}

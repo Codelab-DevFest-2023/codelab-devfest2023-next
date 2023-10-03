@@ -22,9 +22,9 @@ const RSCPage = async ({ searchParams }: Props) => {
   }
 
   return (
-    <main className="lg:mx-44 mx-4 space-y-4 lg:pt-6 pt-14 pb-20">
+    <main className="main-container">
       <SearchBox />
-      <ul className="movies-list grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+      <ul className="movies-list">
         {movies?.map((movie: Movie) => (
           <li key={movie.id}>
             <Link href={`/rsc/${movie.id}`}>
