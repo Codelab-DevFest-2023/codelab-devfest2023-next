@@ -1,4 +1,3 @@
-import { QUERY_PARAMS } from '@/constants';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
 
@@ -14,13 +13,13 @@ const SearchBox = () => {
     setSearchValue(value);
 
     const queryParams = new URLSearchParams();
-    queryParams.append(QUERY_PARAMS.QUERY, encodeURI(value));
+    queryParams.append('query', encodeURI(value));
 
     if (value.length > 3) {
       router.push(`${currentPathname}?${queryParams.toString()}`);
     }
 
-    if (value.length <= 2 && searchParams?.get(QUERY_PARAMS.QUERY)) {
+    if (value.length <= 2 && searchParams?.get('query')) {
       router.push(currentPathname);
     }
   };
