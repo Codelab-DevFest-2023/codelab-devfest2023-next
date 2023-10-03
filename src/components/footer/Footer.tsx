@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white z-50 rounded-t-lg fixed bottom-0 left-0 right-0 text-xs">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-        <span className=" text-gray-500 sm:text-center dark:text-gray-400">
+        <span className="text-gray-500 sm:text-center dark:text-gray-400">
           © 2023 <span>Rendu front, action !</span>
         </span>
         <div className="flex flex-wrap items-center gap-3">
