@@ -1,13 +1,13 @@
 import { Movie } from '@/interfaces/movie.interface';
-import { API_HEADER, DEFAULT_PARAMS, QUERY_PARAMS } from '@/constants';
+import { API_HEADER } from '@/constants';
 import { MovieResponse, ReviewResponse } from '@/interfaces/rest';
 import { Review } from '@/interfaces/review.interface';
 
 const fetchPopularMovies = async (): Promise<MovieResponse> => {
   const queryParams = new URLSearchParams();
 
-  if (!queryParams.get(QUERY_PARAMS.LANGUAGE)) {
-    queryParams.append(QUERY_PARAMS.LANGUAGE, DEFAULT_PARAMS.LANGUAGE);
+  if (!queryParams.get('language')) {
+    queryParams.append('language', 'fr-FR');
   }
 
   const URL = `${
@@ -27,7 +27,7 @@ const fetchPopularMovies = async (): Promise<MovieResponse> => {
 
 const fetchMovieDetails = async (movieId: number): Promise<Movie> => {
   const queryParams = new URLSearchParams();
-  queryParams.append(QUERY_PARAMS.LANGUAGE, DEFAULT_PARAMS.LANGUAGE);
+  queryParams.append('language', 'fr-FR');
 
   const URL = `${
     process.env.NEXT_PUBLIC_API_URL
@@ -48,7 +48,7 @@ const searchMovies = async (search: string): Promise<MovieResponse> => {
   const queryParams = new URLSearchParams();
 
   if (search) {
-    queryParams.append(QUERY_PARAMS.QUERY, encodeURI(search));
+    queryParams.append('query', encodeURI(search));
   }
 
   const URL = `${
