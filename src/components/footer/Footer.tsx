@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white z-50 rounded-t-lg fixed bottom-0 left-0 right-0 text-xs">
+    <footer className="bg-primary text-white z-50 fixed bottom-0 left-0 right-0 text-xs">
       <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
         <span className="text-gray-500 sm:text-center dark:text-gray-400">
           © 2023 <span>Rendu front, action !</span>
@@ -16,7 +16,7 @@ const Footer = () => {
             Api utilisée :{' '}
             <Link
               href="https://developer.themoviedb.org/reference/intro/getting-started"
-              className="hover:underline text-blue-600"
+              className="hover:underline text-secondary"
             >
               TMDB (The Movie Database)
             </Link>
