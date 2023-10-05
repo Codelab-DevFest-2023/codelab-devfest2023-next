@@ -12,9 +12,11 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'film-strip': "url('/images/film-strip.svg')",
       },
       colors: {
-        primary: '#10063e',
+        primary: '#D14F34',
+        secondary: '#0E1324',
         yellow: '#ffe733',
         red: '#ed2938',
         green: '#006b3e',
