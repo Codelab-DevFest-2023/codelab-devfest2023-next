@@ -49,7 +49,6 @@ const SSRMovieDetailsPage = ({
               <p className="mt-2 mr-10">{movie.overview}</p>
               <div className="flex items-center gap-3">
                 <Note note={movie.vote_average} />
-                <Like id={movie.id} />
               </div>
             </div>
           </div>
