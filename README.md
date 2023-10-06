@@ -1,8 +1,5 @@
 # codelab-devfest2023-next
 Codelab sur les rendus front au DevFest 2023 (Next.js)
----
-title: "Projet Next.js"
----
 
 Ce projet est basé sur Next.js, un framework React pour la création d'applications web côté serveur et côté client.
 
