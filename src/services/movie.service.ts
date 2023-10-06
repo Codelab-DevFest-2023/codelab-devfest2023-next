@@ -4,6 +4,8 @@ import { MovieResponse, ReviewResponse } from '@/interfaces/rest';
 import { Review } from '@/interfaces/review.interface';
 
 const fetchPopularMovies = async (): Promise<MovieResponse> => {
+  console.log('Request - Fetching popular movies');
+
   const queryParams = new URLSearchParams();
 
   if (!queryParams.get('language')) {
@@ -26,6 +28,8 @@ const fetchPopularMovies = async (): Promise<MovieResponse> => {
 };
 
 const fetchMovieDetails = async (movieId: number): Promise<Movie> => {
+  console.log('Request - Fetching movie details');
+
   const queryParams = new URLSearchParams();
   queryParams.append('language', 'fr-FR');
 
@@ -67,6 +71,8 @@ const searchMovies = async (search: string): Promise<MovieResponse> => {
 };
 
 const fetchMovieReviews = async (movieId: number): Promise<Review[]> => {
+  console.log('Request - Fetching movie reviews');
+
   const URL = `${process.env.NEXT_PUBLIC_API_URL}/movie/${movieId}/reviews`;
 
   const result = await fetch(`${URL}`, {
