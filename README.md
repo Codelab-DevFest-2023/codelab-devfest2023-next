@@ -26,7 +26,7 @@ Ce projet est basé sur Next.js, un framework React pour la création d'applicat
 L'application sera accessible à l'adresse http://localhost:3000.
 
 
-3. **Gestion de l'API
+3. **Gestion de l'API**
 
 Nous allons utiliser l'api The Movie Database
 
