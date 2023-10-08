@@ -1,6 +1,6 @@
 const RSCMovieDetailsPage = async () => {
   return (
-    <main className="flex md:flex-row flex-col">
+    <main className="details-page">
       <h1 className="flex justify-center w-full text-primary font-medium text-3xl pt-20">
         React Server Component - Detail
       </h1>
