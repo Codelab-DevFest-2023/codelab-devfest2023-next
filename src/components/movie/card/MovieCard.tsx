@@ -22,7 +22,7 @@ const MovieCard = ({ movie }: Props) => {
           <Image
             src={posterUrl}
             alt={movie.title}
-            className="rounded-t-lg aspect-[2/3] object-cover"
+            className="movie-poster"
             height={750}
             width={500}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

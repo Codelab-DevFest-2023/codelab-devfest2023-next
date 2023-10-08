@@ -24,37 +24,37 @@ const SSGMovieDetailsPage = ({
       <Head>
         <title>Static Site Generation</title>
       </Head>
-      <div className="flex md:flex-row flex-col">
-        <div className="poster z-10 md:order-first order-last">
+      <div className="details-page">
+        <div className="poster">
           <Image
             src={posterUrl}
             alt={movie.title}
-            className="aspect-[2/3] object-cover h-full"
+            className="poster-image"
             height={750}
             width={500}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
           />
         </div>
-        <div className="description relative w-full">
+        <div className="relative-full">
           <Image
-            className="block z-0 object-cover brightness-50"
+            className="movie-backdrop"
             alt={movie.title}
             src={backdropPathUrl}
             fill
             priority
           />
-          <div className="relative flex flex-col">
-            <div className="flex flex-col gap-3 ml-4 text-white mt-3">
-              <h1 className="text-xl font-semibold">{movie.title}</h1>
-              <div className="flex gap-2">
+          <div className="movie-description">
+            <div className="informations">
+              <h1 className="movie-title">{movie.title}</h1>
+              <div className="movie-genre">
                 {movie.genres.map((genre) => {
                   return <p key={genre.id}>{genre.name}</p>;
                 })}
               </div>
               <p>{movie.tagline}</p>
-              <p className="mt-2 mr-10">{movie.overview}</p>
-              <div className="flex items-center gap-3">
+              <p className="movie-overview">{movie.overview}</p>
+              <div className="movie-note">
                 <Note note={movie.vote_average} />
               </div>
             </div>
