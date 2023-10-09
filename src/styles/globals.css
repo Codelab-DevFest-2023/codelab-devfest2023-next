@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  .main-container {
+    @apply lg:mx-44 mx-4 space-y-4 lg:pt-6 pt-14 pb-20;
+  }
+
+  .search-input {
+    @apply text-xl py-3 px-6 bg-white rounded-full w-fit focus-visible:ring-primary focus-visible:ring-offset-primary;
+  }
+
+  .movies-list {
+    @apply grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6;
+  }
+
+  .reviews-list {
+    @apply grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 p-4;
+  }
+
+  .details-page {
+    @apply flex md:flex-row flex-col;
+  }
+
+  .poster {
+    @apply z-10 md:order-first order-last;
+  }
+
+  .poster-image {
+    @apply aspect-[2/3] object-cover h-full;
+  }
+
+  .movie-description {
+    @apply relative flex flex-col;
+  }
+
+  .relative-full {
+    @apply relative w-full;
+  }
+
+  .movie-backdrop {
+    @apply block z-0 object-cover brightness-50;
+  }
+
+  .informations {
+    @apply flex flex-col gap-3 ml-4 text-white mt-3;
+  }
+
+  .movie-title {
+    @apply text-xl font-semibold;
+  }
+
+  .movie-genre {
+    @apply flex gap-2;
+  }
+
+  .movie-overview {
+    @apply mt-2 mr-10;
+  }
+
+  .movie-note {
+    @apply flex items-center gap-3;
+  }
+
+  .movie-poster {
+    @apply rounded-t-lg aspect-[2/3] object-cover;
+  }
+}
