@@ -44,7 +44,7 @@ const SSGMovieDetailsPage = ({
             fill
             priority
           />
-          <div className="relative flex flex-col">
+          <div className="movie-description">
             <div className="informations">
               <h1 className="movie-title">{movie.title}</h1>
               <div className="movie-genre">
