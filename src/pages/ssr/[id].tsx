@@ -1,4 +1,3 @@
-import Like from '@/components/like/Like';
 import Note from '@/components/note/Note';
 import { Movie } from '@/interfaces/movie.interface';
 import { fetchMovieDetails } from '@/services/movie.service';
