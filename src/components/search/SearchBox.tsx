@@ -12,14 +12,12 @@ const SearchBox = () => {
     const value = event.target.value;
     setSearchValue(value);
 
-    const queryParams = new URLSearchParams();
-    queryParams.append('query', encodeURI(value));
-
     if (value.length > 3) {
-      router.push(`${currentPathname}?${queryParams.toString()}`);
+      const newUrl = currentPathname + '?searchKey=' + encodeURI(value);
+      router.push(newUrl);
     }
 
-    if (value.length <= 2 && searchParams?.get('query')) {
+    if (value.length <= 2 && searchParams?.get('searchKey')) {
       router.push(currentPathname);
     }
   };
