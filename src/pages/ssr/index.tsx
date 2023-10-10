@@ -35,11 +35,11 @@ const SSRPage = ({
 
 export const getServerSideProps: GetServerSideProps<{
   movies: Movie[];
-}> = async ({ query: searchParams }) => {
+}> = async ({ query }) => {
   let movies: Movie[];
 
-  if (searchParams.query) {
-    const { results } = await searchMovies(searchParams.query as string);
+  if (query.searchKey) {
+    const { results } = await searchMovies(query.searchKey as string);
     movies = results;
   } else {
     const { results } = await fetchPopularMovies();
