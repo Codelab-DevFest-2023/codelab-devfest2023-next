@@ -13,8 +13,8 @@ interface Props {
 const RSCPage = async ({ searchParams }: Props) => {
   let movies: Movie[];
 
-  if (searchParams.query) {
-    const { results } = await searchMovies(searchParams.query as string);
+  if (searchParams.searchKey) {
+    const { results } = await searchMovies(searchParams.searchKey as string);
     movies = results;
   } else {
     const { results } = await fetchPopularMovies();
