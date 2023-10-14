@@ -1,4 +1,3 @@
-import Like from '@/components/like/Like';
 import Note from '@/components/note/Note';
 import { Movie } from '@/interfaces/movie.interface';
 import { fetchMovieDetails } from '@/services/movie.service';
@@ -49,7 +48,6 @@ const SSRMovieDetailsPage = ({
               <p className="movie-overview">{movie.overview}</p>
               <div className="">
                 <Note note={movie.vote_average} />
-                <Like id={movie.id} />
               </div>
             </div>
           </div>
