@@ -1,15 +1,10 @@
 import Like from '@/components/like/Like';
-import MovieReview from '@/components/movie/review/MovieReview';
 import Note from '@/components/note/Note';
-import { Review } from '@/interfaces/review.interface';
-import { fetchMovieDetails, fetchMovieReviews } from '@/services/movie.service';
+import { fetchMovieDetails } from '@/services/movie.service';
 import Image from 'next/image';
 
 const RSCMovieDetailsPage = async ({ params }: { params: { id: number } }) => {
-  const [movie, reviews] = await Promise.all([
-    fetchMovieDetails(params.id),
-    fetchMovieReviews(params.id),
-  ]);
+  const movie = await fetchMovieDetails(params.id);
 
   const posterUrl = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   const backdropPathUrl = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
@@ -49,11 +44,6 @@ const RSCMovieDetailsPage = async ({ params }: { params: { id: number } }) => {
               <Note note={movie.vote_average} />
               <Like id={movie.id} />
             </div>
-          </div>
-          <div className="reviews-list">
-            {reviews.map((review: Review) => (
-              <MovieReview key={review.id} review={review} />
-            ))}
           </div>
         </div>
       </div>
